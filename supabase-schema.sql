@@ -1,5 +1,6 @@
 -- Ejecutá este SQL en Supabase > SQL Editor.
--- Política: el público puede insertar participaciones, pero no leerlas ni modificarlas.
+-- Políticas: el público puede insertar participaciones y leerlas (para dashboard.html),
+-- pero no modificarlas ni borrarlas. El script es idempotente: podés volver a ejecutarlo.
 create table if not exists public.quiz_responses (
   id bigint generated always as identity primary key,
   submitted_at timestamptz not null default now(),
@@ -21,4 +22,13 @@ with check (
   and jsonb_typeof(answers) = 'array'
 );
 
--- No crear políticas SELECT públicas. Consultá resultados desde el panel autenticado de Supabase.
+-- Lectura para el dashboard (dashboard.html). No permite UPDATE ni DELETE.
+drop policy if exists "Public can read quiz responses" on public.quiz_responses;
+create policy "Public can read quiz responses"
+on public.quiz_responses
+for select
+to anon, authenticated
+using (true);
+
+-- No crear políticas UPDATE/DELETE públicas. Los resultados también pueden consultarse
+-- desde el panel autenticado de Supabase.

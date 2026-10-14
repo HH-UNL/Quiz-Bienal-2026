@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174c3c">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel de resultados | Quiz Sostenibilidad Bienal 2026</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">↗</div>
+      <div><span class="eyebrow">BIENAL DE ARTE JOVEN · UNL 2026</span><div class="brand-name">Panel de resultados</div></div>
+      <a class="back-link" href="index.html">← Volver al quiz</a>
+    </header>
+
+    <div class="toolbar">
+      <div class="toolbar-info">
+        <span id="lastUpdated">Cargando datos…</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <label class="auto-refresh"><input type="checkbox" id="autoRefresh" checked> Actualización automática (1 min)</label>
+      </div>
+      <div class="toolbar-actions">
+        <button class="button secondary" id="refreshBtn">Actualizar ↻</button>
+        <button class="button primary" id="csvBtn">Exportar CSV</button>
+      </div>
+    </div>
+
+    <div class="banner error hidden" id="errorBanner" role="alert"></div>
+
+    <section class="kpi-grid" id="kpis">
+      <article class="card kpi"><span class="kpi-label">Participaciones</span><strong id="kpiTotal">—</strong></article>
+      <article class="card kpi"><span class="kpi-label">Puntaje promedio</span><strong id="kpiAvg">—</strong><span class="kpi-sub" id="kpiAvgSub">de 6 puntos</span></article>
+      <article class="card kpi"><span class="kpi-label">Aciertos globales</span><strong id="kpiAccuracy">—</strong><span class="kpi-sub" id="kpiAccuracySub">sobre todas las respuestas</span></article>
+      <article class="card kpi"><span class="kpi-label">Puntajes perfectos</span><strong id="kpiPerfect">—</strong><span class="kpi-sub">6 de 6 correctas</span></article>
+    </section>
+
+    <section class="grid-2">
+      <article class="card panel">
+        <h2>Distribución de puntajes</h2>
+        <div id="scoreChart" class="chart"></div>
+      </article>
+      <article class="card panel">
+        <h2>Aciertos por pregunta</h2>
+        <div id="questionChart" class="chart"></div>
+      </article>
+    </section>
+
+    <section class="card panel">
+      <div class="panel-head">
+        <h2>Participaciones recientes</h2>
+        <span class="muted" id="tableCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Fecha</th><th>Puntaje</th><th>% correctas</th><th>Estado</th></tr>
+          </thead>
+          <tbody id="rowsBody"></tbody>
+        </table>
+      </div>
+      <div class="empty hidden" id="emptyState">
+        Todavía no hay participaciones registradas. Completá el <a href="index.html">quiz</a> para ver un resultado acá.
+      </div>
+    </section>
+
+    <footer class="site-footer"><img src="Docs/unl_verde_color.png" alt="UNL Verde" class="footer-logo"><span>© Bienal de Arte Joven · UNL 2026</span></footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

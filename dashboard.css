@@ -1,0 +1,85 @@
+:root {
+  --green: #174c3c; --green-2: #267356; --lime: #d8f27a;
+  --ink: #18241e; --muted: #64736a; --paper: #f4f5ed; --white: #fff;
+  --line: #dce4d9; --bad: #9c352e; --good: #216747; --warn: #b4762a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background-color: var(--paper); background-image: linear-gradient(rgba(244, 245, 237, .82), rgba(244, 245, 237, .82)), url("Docs/Logo_Bienal.jpeg"); background-position: center; background-size: cover; background-attachment: fixed; min-height: 100vh; }
+.shell { width: min(100% - 32px, 1120px); margin: 0 auto; padding: 24px 0 20px; min-height: 100vh; display: flex; flex-direction: column; }
+.hidden { display: none !important; }
+.muted { color: var(--muted); font-size: .85rem; }
+
+.topbar { display: flex; align-items: center; gap: 12px; padding: 8px 2px 24px; }
+.brand-mark { display: grid; place-items: center; background: var(--lime); color: var(--green); width: 42px; height: 42px; border-radius: 14px; font-size: 25px; font-weight: 800; }
+.eyebrow { font-size: .72rem; letter-spacing: .13em; font-weight: 800; color: var(--green-2); margin: 0 0 7px; }
+.brand-name { font-size: 1.05rem; font-weight: 800; }
+.back-link { margin-left: auto; color: var(--green); font-weight: 700; font-size: .88rem; text-decoration: none; border: 1px solid var(--line); background: rgba(255,255,255,.8); border-radius: 12px; padding: 9px 14px; }
+.back-link:hover { border-color: #8aa995; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.toolbar-info { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--muted); font-size: .85rem; }
+.auto-refresh { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.toolbar-actions { display: flex; gap: 10px; }
+
+.button { border: 0; border-radius: 14px; padding: 12px 18px; min-height: 46px; font: inherit; font-weight: 750; cursor: pointer; transition: transform .15s, opacity .15s; }
+.button:hover { transform: translateY(-1px); }
+.button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.primary { background: var(--green); color: #fff; }
+.secondary { background: #eff3ec; color: var(--green); border: 1px solid var(--line); }
+
+.banner { border-radius: 16px; padding: 15px 18px; margin-bottom: 16px; line-height: 1.55; font-size: .92rem; }
+.banner.error { background: #fff0ec; color: var(--bad); border: 1px solid #f1cfc6; }
+.banner code { background: rgba(0,0,0,.06); padding: 2px 6px; border-radius: 6px; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px; }
+.card { background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 14px 45px rgba(25, 58, 40, .06); }
+.kpi { padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+.kpi-label { font-size: .72rem; letter-spacing: .1em; font-weight: 800; color: var(--green-2); text-transform: uppercase; }
+.kpi strong { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 850; letter-spacing: -.05em; color: var(--green); line-height: 1; }
+.kpi-sub { color: var(--muted); font-size: .78rem; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.panel { padding: 22px; }
+.panel h2 { font-size: 1.05rem; letter-spacing: -.02em; margin: 0 0 18px; }
+.panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.panel-head h2 { margin-bottom: 4px; }
+
+.chart { display: grid; gap: 12px; }
+.bar-row { display: grid; grid-template-columns: minmax(90px, auto) 1fr auto; align-items: center; gap: 10px; font-size: .84rem; }
+.bar-row .bar-label { color: var(--ink); font-weight: 650; }
+.bar-track { height: 22px; background: #edf0e9; border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--green-2); border-radius: 99px; transition: width .4s ease; min-width: 2px; }
+.bar-fill.perfect { background: var(--green); }
+.bar-fill.low { background: #c98a3e; }
+.bar-row .bar-value { color: var(--muted); font-variant-numeric: tabular-nums; font-weight: 700; min-width: 64px; text-align: right; }
+
+.table-wrap { overflow-x: auto; max-height: 430px; overflow-y: auto; border: 1px solid var(--line); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+thead th { position: sticky; top: 0; background: #f2f5ee; color: var(--green); text-align: left; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+tbody td { padding: 11px 14px; border-bottom: 1px solid #eef1ea; font-variant-numeric: tabular-nums; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #fafbf7; }
+.badge { display: inline-block; padding: 4px 10px; border-radius: 99px; font-size: .76rem; font-weight: 800; }
+.badge.perfect { background: #e6f4e9; color: var(--good); }
+.badge.good { background: #edf5d9; color: var(--green); }
+.badge.mid { background: #fdf3e3; color: var(--warn); }
+.badge.low { background: #fff0ec; color: var(--bad); }
+.empty { padding: 26px 8px; text-align: center; color: var(--muted); line-height: 1.6; }
+.empty a { color: var(--green-2); font-weight: 700; }
+
+footer.site-footer { margin-top: auto; padding: 28px 8px 6px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; color: var(--muted); font-size: .82rem; }
+.footer-logo { display: block; width: min(170px, 45vw); height: auto; filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px rgba(255,255,255,.95)); }
+
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .shell { width: min(100% - 20px, 1120px); padding-top: 12px; }
+  .topbar { padding-bottom: 16px; flex-wrap: wrap; }
+  .back-link { margin-left: 0; }
+  .toolbar-actions { width: 100%; }
+  .toolbar-actions .button { flex: 1; }
+  .bar-row { grid-template-columns: minmax(70px, auto) 1fr auto; font-size: .78rem; }
+}

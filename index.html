@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174c3c">
+  <meta name="description" content="Quiz de Sostenibilidad — Bienal de Arte Joven UNL 2026">
+  <title>Quiz de Sostenibilidad | Bienal 2026</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">↗</div>
+      <div><span class="eyebrow">BIENAL DE ARTE JOVEN · UNL 2026</span><div class="brand-name">Sostenibilidad</div></div>
+    </header>
+
+    <section class="hero" id="intro">
+      <div class="hero-symbol" aria-hidden="true">🌱</div>
+      <p class="eyebrow">DEJÁ UNA HUELLA POSITIVA</p>
+      <h1>Tus decisiones también forman parte de la Bienal.</h1>
+      <p class="lead">Respondé estas 6 preguntas y descubrí cómo pequeños hábitos pueden ayudar a construir un evento más sostenible.</p>
+      <button class="button primary" id="startBtn">Comencemos <span aria-hidden="true">→</span></button>
+      <p class="small-note">Te va a llevar solo unos minutos.</p>
+    </section>
+
+    <section class="quiz-card hidden" id="quiz" aria-live="polite">
+      <div class="quiz-meta"><span id="category" class="category"></span><span id="counter"></span></div>
+      <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+      <h2 id="question"></h2>
+      <p id="questionHint" class="hint"></p>
+      <div id="answers" class="answers"></div>
+      <div id="feedback" class="feedback hidden" role="status"></div>
+      <div class="quiz-actions">
+        <button class="button secondary" id="backBtn">← Anterior</button>
+        <button class="button primary" id="nextBtn" disabled>Siguiente →</button>
+      </div>
+    </section>
+
+    <section class="result-card hidden" id="result" aria-live="polite">
+      <div class="result-icon" id="resultIcon">🌎</div>
+      <p class="eyebrow">TU RESULTADO</p>
+      <h2 id="resultTitle">¡Gracias por participar!</h2>
+      <div class="score"><span id="score">0</span><small>/ 6 respuestas correctas</small></div>
+      <p id="resultMessage" class="lead"></p>
+      <div class="save-status" id="saveStatus">Preparando el registro de tu participación…</div>
+      <button class="button primary" id="restartBtn">Volver a jugar ↻</button>
+      <p class="small-note">Cada pequeña decisión puede sumar para una Bienal más sostenible.</p>
+    </section>
+
+    <footer class="site-footer"><img src="Docs/unl_verde_color.png" alt="UNL Verde" class="footer-logo"><span>© Bienal de Arte Joven · UNL 2026</span></footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
